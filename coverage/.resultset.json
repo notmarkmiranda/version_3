@@ -14,6 +14,64 @@
       "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/controllers/application_controller.rb": [
         1,
         1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        null
+      ],
+      "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/controllers/sessions_controller.rb": [
+        1,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null
+      ],
+      "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/models/user.rb": [
+        1,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null
+      ],
+      "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/models/application_record.rb": [
+        1,
+        1,
         null
       ],
       "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/channels/application_cable/channel.rb": [
@@ -37,13 +95,8 @@
         0,
         0,
         0
-      ],
-      "/Users/markmiranda/mark_miranda/projects/poker_tournament_tracker/app/models/application_record.rb": [
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1485556140
+    "timestamp": 1485579373
   }
 }
