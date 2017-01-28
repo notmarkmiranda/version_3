@@ -1,0 +1,8 @@
+<%= link_to "Create New League!", new_league_path %>
+
+<div class="leagues">
+  <% current_user.leagues.each do |league| %>
+  <p><%= league.name.humanize %></p>
+  <p><%= link_to league.slug, league_path(league) %></p>
+  <% end %>
+</div>

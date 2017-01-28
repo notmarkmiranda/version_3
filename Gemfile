@@ -32,6 +32,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
