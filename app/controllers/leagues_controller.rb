@@ -1,9 +1,10 @@
 class LeaguesController < ApplicationController
-  def new
-  end
 
   def show
     @league = League.find_by_slug(params[:id])
+  end
+
+  def new
   end
 
   def create
@@ -15,6 +16,20 @@ class LeaguesController < ApplicationController
     else
       flash[:danger] = league.errors.full_messages.join(", ")
       render :new
+    end
+  end
+
+  def edit
+    @league = League.find_by_slug(params[:id])
+  end
+
+  def update
+    league = League.find_by_slug(params[:id])
+    if league.update(league_params!)
+      league.update(slug: league.to_param)
+      flash[:success] = "League updated!"
+      redirect_to league_path(league)
+    else
     end
   end
 
