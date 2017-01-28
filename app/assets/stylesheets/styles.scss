@@ -1,0 +1,38 @@
+html, body {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar > .container .navbar-brand {
+  color: #8B8C89;
+  text-transform: uppercase;
+  font-weight: 300;
+  span {
+    color: #274C77;
+    font-weight: bold;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+
+.dropdown-menu > li > a {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-poker, li.btn-poker {
+  background-color: #274C77;
+  color: #FFF;
+}
+
+.alert {
+  position: fixed;
+  top: 120px;
+  left: 30%;
+  width: 40%;
+  z-index: 7000;
+}

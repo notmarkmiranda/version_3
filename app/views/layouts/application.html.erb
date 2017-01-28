@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <div class="container">
+        <div class="alert alert-<%= key %> alert-dismissible", role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
     <%= render partial: "shared/navbar" %>
     <%= yield %>
   </body>
