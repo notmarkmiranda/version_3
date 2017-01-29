@@ -6,7 +6,7 @@ RSpec.describe "user can create a league", type: :feature do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
 
-  it "does something" do
+  it "creates a new league" do
     visit dashboard_path
     click_link "Create New League!"
 

@@ -29,4 +29,10 @@ RSpec.describe LeaguesController, type: :controller do
     expect(response).to redirect_to(dashboard_path)
   end
 
+  it "POST create - sad template" do
+    attrs = attributes_for(:league, name: "")
+    post :create, params: { league: attrs }
+    expect(response).to render_template(:new)
+  end
+
 end
