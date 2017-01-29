@@ -2,7 +2,13 @@
 
 <div class="leagues">
   <% current_user.leagues.each do |league| %>
-  <p><%= league.name.humanize %></p>
-  <p><%= link_to league.slug, league_path(league) %></p>
+    <p><%= league.name.humanize %></p>
+    <p><%= link_to league.slug, league_path(league) %></p>
+    <% league.seasons.each do |season| %>
+      <div class="league">
+        <%= "season-id-#{season.id}" %>
+        <%= season.display_status %>
+      </div>
+    <% end %>
   <% end %>
 </div>
