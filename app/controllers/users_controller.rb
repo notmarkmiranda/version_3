@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome!"
       redirect_to dashboard_path
     else
+      # binding.pry
       flash.now[:warning] = "Something went wrong!"
       render :new
     end
