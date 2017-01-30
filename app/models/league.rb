@@ -6,6 +6,10 @@ class League < ApplicationRecord
   belongs_to :user
   has_many :seasons
 
+  def seasons_count
+    seasons.count
+  end
+
   def self.find_by_slug(slug)
     find_by(slug: slug)
   end

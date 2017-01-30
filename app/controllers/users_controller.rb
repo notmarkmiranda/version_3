@@ -7,12 +7,12 @@ class UsersController < ApplicationController
 
   def create
     user = User.sign_in_or_create(user_params!)
-    if user && user.authenticate(user_params![:password])
+    if user.id && user.authenticate(user_params![:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome!"
       redirect_to dashboard_path
     else
-      flash.now[:warning] = "Something went wrong!"
+      flash.now[:warning] = "Something went wrong! Try again!"
       render :new
     end
   end

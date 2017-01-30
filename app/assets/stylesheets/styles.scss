@@ -24,9 +24,12 @@ html, body {
   text-transform: uppercase;
 }
 
-.btn-poker, li.btn-poker {
+.btn.btn-poker, li.btn-poker {
   background-color: #274C77;
   color: #FFF;
+  &:hover {
+    color: #EEE;
+  }
 }
 
 .alert {
@@ -35,4 +38,25 @@ html, body {
   left: 30%;
   width: 40%;
   z-index: 7000;
+}
+
+.panel.panel-default {
+  margin-top: 20px;
+}
+
+.league-name {
+  margin-top: 0px;
+}
+
+a.league-link {
+  text-transform: uppercase;
+  &:hover {
+    text-decoration:none;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-btn.col-xs-12+.col-btn.col-xs-12 {
+    margin-top: 5px;
+  }
 }

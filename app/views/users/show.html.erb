@@ -1,14 +1,58 @@
-<%= link_to "Create New League!", new_league_path %>
-
-<div class="leagues">
-  <% current_user.leagues.each do |league| %>
-    <p><%= league.name.humanize %></p>
-    <p><%= link_to league.slug, league_path(league) %></p>
-    <% league.seasons.each do |season| %>
-      <div class="league">
-        <%= "season-id-#{season.id}" %>
-        <%= season.display_status %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="actions row">
+        <div class="col-btn col-sm-3 col-xs-12">
+          <%= link_to "Create League", new_league_path, class: "btn btn-poker btn-block" %>
+        </div>
+        <div class="col-btn col-sm-3 col-xs-12">
+          <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
+        </div>
       </div>
-    <% end %>
-  <% end %>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1>Your Leagues</h1>
+        </div>
+        <div class="panel-body">
+
+          <% current_user.leagues.each do |league| %>
+          <div class="panel panel-default leagues">
+            <div class="panel-body row">
+              <div class="col-sm-9 col-xs-12">
+                <h2 class="league-name"><%= link_to league.name, league_path(league), class: "league-link" %></h2>
+                <div class="stats">
+                  <div class="col-sm-4 col-xs-12">
+                    <p><%= pluralize(league.seasons_count, "season") %></p>
+                    <p>15 Games</p>
+                    <p>27 Players</p>
+                  </div>
+                  <div class="col-sm-4 col-xs-12">
+                    <p>Cumulative Pot: $2,765</p>
+                    <p>Largest Pot: $975</p>
+                    <p>Last Game: Jan 31, 2016</p>
+                  </div>
+                  <div class="col-sm-4 col-xs-12">
+                    <p>League Leader: John S.</p>
+                    <p>League Loser: Michael C.</p>
+                    <p>Other Stat: Something</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-12">
+                <%= link_to "View League", "#", class: "btn btn-poker btn-block" %>
+                <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
+                <%= link_to "Current Season", "#", class: "btn btn-poker btn-block" %>
+                <%= link_to "League Settings", "#", class: "btn btn-poker btn-block" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
