@@ -6,19 +6,19 @@ RSpec.describe "user can create a league", type: :feature do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
 
-  it "creates a new league" do
+  it "creates a new league", js: true do
     visit dashboard_path
     within('.actions') do
-      click_link "Create League"
+      click_button "Create League"
     end
 
 
     fill_in "Name", with: "test league"
-    click_button "Create League!"
+    click_button "Create!"
 
     expect(current_path).to eq(dashboard_path)
     within('.leagues') do
-      expect(page).to have_content("test league")
+      expect(page).to have_link("test league")
     end
 
   end

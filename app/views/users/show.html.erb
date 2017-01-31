@@ -3,10 +3,13 @@
     <div class="col-lg-10 col-lg-offset-1">
       <div class="actions row">
         <div class="col-btn col-sm-3 col-xs-12">
-          <%= link_to "Create League", new_league_path, class: "btn btn-poker btn-block" %>
+          <%# link_to "Create League", new_league_path, class: "btn btn-poker btn-block" %>
+          <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#myModal">
+            Create League!
+          </button>
         </div>
         <div class="col-btn col-sm-3 col-xs-12">
-          <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
+          <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block", disabled: @leagues.empty? %>
         </div>
       </div>
 
@@ -15,8 +18,10 @@
           <h1>Your Leagues</h1>
         </div>
         <div class="panel-body">
-
-          <% current_user.leagues.each do |league| %>
+          <% if @leagues.empty? %>
+            <p>You don't currently have any leagues set up. Click the button above to create one!</p>
+          <% end %>
+          <% @leagues.each do |league| %>
           <div class="panel panel-default leagues">
             <div class="panel-body row">
               <div class="col-sm-9 col-xs-12">
@@ -40,7 +45,7 @@
                 </div>
               </div>
               <div class="col-sm-3 col-xs-12">
-                <%= link_to "View League", "#", class: "btn btn-poker btn-block" %>
+                <%= link_to "View League", league_path(league), class: "btn btn-poker btn-block" %>
                 <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
                 <%= link_to "Current Season", "#", class: "btn btn-poker btn-block" %>
                 <%= link_to "League Settings", "#", class: "btn btn-poker btn-block" %>
@@ -56,3 +61,5 @@
     </div>
   </div>
 </div>
+
+<%= render partial: "leagues/newmodal" %>

@@ -1,5 +1,7 @@
-$('.alert').fadeIn(function() {
-  setTimeout(function() {
-    $('.alert').fadeOut();
-  }, '5000');
+$(document).ready(function () {
+  $('.alert').fadeIn(function() {
+    setTimeout(function() {
+      $('.alert').fadeOut();
+    }, '3000');
+  });
 });

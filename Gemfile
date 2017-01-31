@@ -34,6 +34,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

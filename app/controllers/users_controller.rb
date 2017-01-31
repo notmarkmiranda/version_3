@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @leagues = current_user.leagues
   end
 
   def create
