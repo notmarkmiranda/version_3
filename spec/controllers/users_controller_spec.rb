@@ -8,6 +8,7 @@ RSpec.describe UsersController, type: :controller do
 
   it "GET show - template" do
     user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     get :show, params: { id: user.id }
     expect(response).to render_template(:show)
   end

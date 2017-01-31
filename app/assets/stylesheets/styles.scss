@@ -18,21 +18,52 @@ html, body {
   letter-spacing: 0.2rem;
 }
 
-
 .dropdown-menu > li > a {
   font-size: 1rem;
   text-transform: uppercase;
 }
 
-.btn-poker, li.btn-poker {
+.poker-bg {
   background-color: #274C77;
   color: #FFF;
 }
 
+.btn.btn-poker, li.btn-poker {
+  background-color: #274C77;
+  color: #FFF;
+  &:focus {
+    color: #DDD;
+  }
+  &:hover {
+    color: #EEE;
+  }
+}
+
 .alert {
   position: fixed;
-  top: 120px;
+  top: 20px;
   left: 30%;
   width: 40%;
   z-index: 7000;
+}
+
+.panel.panel-default {
+  margin-top: 20px;
+}
+
+.league-name {
+  margin-top: 0px;
+}
+
+a.league-link {
+  text-transform: uppercase;
+  &:hover {
+    text-decoration:none;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-btn.col-xs-12+.col-btn.col-xs-12 {
+    margin-top: 5px;
+  }
 }

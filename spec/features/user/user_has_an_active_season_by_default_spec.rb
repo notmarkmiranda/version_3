@@ -4,7 +4,6 @@ RSpec.describe "active season by default with a new league", typ: :feature do
   before do
     @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    # @league = create(:league, user: @user)
   end
 
   it "creates an active season when creating a new league" do
@@ -14,9 +13,11 @@ RSpec.describe "active season by default with a new league", typ: :feature do
     click_button "Create League!"
 
     expect(current_path).to eq(dashboard_path)
-    within('.league') do
-      expect(page).to have_content("season-id-#{Season.last.id}")
-      expect(page).to have_content("Active!")
+
+    within('.stats') do
+      expect(page).to have_content("1 season")
+      # expect(page).to have_content("season-id-#{Season.last.id}")
+      # expect(page).to have_content("Active!")
     end
   end
 end
