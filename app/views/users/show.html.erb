@@ -3,13 +3,11 @@
     <div class="col-lg-10 col-lg-offset-1">
       <div class="actions row">
         <div class="col-btn col-sm-3 col-xs-12">
-          <%# link_to "Create League", new_league_path, class: "btn btn-poker btn-block" %>
-          <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#myModal">
+          <button id="new-league-button" type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#newLeague">
             Create League!
           </button>
         </div>
         <div class="col-btn col-sm-3 col-xs-12">
-          <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block", disabled: @leagues.empty? %>
         </div>
       </div>
 
@@ -29,7 +27,7 @@
                 <div class="stats">
                   <div class="col-sm-4 col-xs-12">
                     <p><%= pluralize(league.seasons_count, "season") %></p>
-                    <p>15 Games</p>
+                    <p><%= pluralize(league.games_count, "game") %></p>
                     <p>27 Players</p>
                   </div>
                   <div class="col-sm-4 col-xs-12">
@@ -46,20 +44,21 @@
               </div>
               <div class="col-sm-3 col-xs-12">
                 <%= link_to "View League", league_path(league), class: "btn btn-poker btn-block" %>
-                <%= link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
+                <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame">
+                  Schedule Game
+                </button>
+                <%# link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
                 <%= link_to "Current Season", "#", class: "btn btn-poker btn-block" %>
                 <%= link_to "League Settings", "#", class: "btn btn-poker btn-block" %>
               </div>
             </div>
           </div>
-          <% end %>
-
         </div>
       </div>
-
-
     </div>
   </div>
 </div>
+<%= render partial: "games/newmodal", locals: { league: league } %>
+<% end %>
 
 <%= render partial: "leagues/newmodal" %>

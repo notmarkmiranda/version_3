@@ -1,0 +1,26 @@
+<div class="modal fade" id="scheduleGame" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header poker-bg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Schedule Game!</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for [league, Game.new] do |f| %>
+        <%= f.hidden_field :season_id, value: Season.current_season(current_user.id).id %>
+        <div class="form-group">
+          <%= f.label :date, "Date" %>
+          <%= f.date_field :date, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :buy_in_amount, "Buy In Amount" %>
+          <%= f.text_field :buy_in_amount, class: "form-control" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Create!", class: "btn btn-poker", id: "new-game" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
