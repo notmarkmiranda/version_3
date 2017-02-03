@@ -47,13 +47,14 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-3 col-xs-12">
+              <div class="col-sm-3 col-xs-12 league-actions">
                 <%= link_to "View League", league_path(league), class: "btn btn-poker btn-block" %>
                 <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame">
                   Schedule Game
                 </button>
-                <%# link_to "Schedule Game", "#", class: "btn btn-poker btn-block" %>
-                <%= link_to "Current Season", "#", class: "btn btn-poker btn-block" %>
+                <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#editLeagueName">
+                  Edit League Name
+                </button>
                 <%= link_to "League Settings", "#", class: "btn btn-poker btn-block" %>
               </div>
             </div>
@@ -64,6 +65,7 @@
   </div>
 </div>
 <%= render partial: "games/newmodal", locals: { league: league } %>
+<%= render partial: "games/editmodal", locals: { league: league } %>
 <% end %>
 
 <%= render partial: "leagues/newmodal" %>

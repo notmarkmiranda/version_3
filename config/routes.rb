@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#show"
   resources :users
-  resources :leagues, only: [:new, :index, :create, :show] do
+  resources :leagues, only: [:new, :index, :create, :show, :update] do
     resources :games, controller: "leagues/games"
   end
   resources :participants
