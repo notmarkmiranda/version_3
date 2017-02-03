@@ -9,7 +9,7 @@ RSpec.describe "user can create a league", type: :feature do
   it "creates a new league", js: true do
     visit dashboard_path
     within('.actions.row') do
-      click_button "Create League!"
+      click_button "new-league-button"
     end
 
 

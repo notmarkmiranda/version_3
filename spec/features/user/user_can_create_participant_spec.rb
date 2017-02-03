@@ -9,7 +9,7 @@ RSpec.describe "user can create a participant", type: :feature do
   it "from user dashboard", js: true do
     visit dashboard_path
     within('.actions.row') do
-      click_button "Create Player!"
+      click_button "new-player-button"
     end
     fill_in "First Name", with: "John"
     fill_in "Last Name", with: "Doe"
