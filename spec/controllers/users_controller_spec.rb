@@ -24,4 +24,11 @@ RSpec.describe UsersController, type: :controller do
     post :create, params: { user: { email: user.email, password: "wrong" } }
     expect(response).to render_template(:new)
   end
+
+  it "POST create - change count" do
+    attrs = attributes_for(:user)
+    expect {
+      post :create, params: { user: attrs }
+    }.to change(User, :count).by(1)
+  end
 end

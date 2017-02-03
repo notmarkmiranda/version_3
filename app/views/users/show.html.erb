@@ -8,6 +8,11 @@
           </button>
         </div>
         <div class="col-btn col-sm-3 col-xs-12">
+          <button id="new-league-button" type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#newParticipant">
+            Create Player!
+          </button>
+        </div>
+        <div class="col-btn col-sm-3 col-xs-12">
         </div>
       </div>
 
@@ -26,8 +31,8 @@
                 <h2 class="league-name"><%= link_to league.name, league_path(league), class: "league-link" %></h2>
                 <div class="stats">
                   <div class="col-sm-4 col-xs-12">
-                    <p><%= pluralize(league.seasons_count, "season") %></p>
-                    <p><%= pluralize(league.games_count, "game") %></p>
+                    <p><%= pluralize(league.seasons_count, "Season") %></p>
+                    <p><%= pluralize(league.games_count, "Game") %></p>
                     <p>27 Players</p>
                   </div>
                   <div class="col-sm-4 col-xs-12">
@@ -62,3 +67,4 @@
 <% end %>
 
 <%= render partial: "leagues/newmodal" %>
+<%= render partial: "participants/newparticipant" %>

@@ -17,7 +17,7 @@ RSpec.describe "user can create a new game", type: :feature do
 
     expect(current_path).to eq(dashboard_path)
     within('.stats') do
-      expect(page).to have_content("1 game")
+      expect(page).to have_content("1 Game")
     end
   end
 end

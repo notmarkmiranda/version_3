@@ -14,7 +14,7 @@ RSpec.describe "user can create a league", type: :feature do
 
 
     fill_in "League Name", with: "test league"
-    click_button "Create!"
+    click_button "New League!"
 
     expect(current_path).to eq(dashboard_path)
     within('.leagues') do
