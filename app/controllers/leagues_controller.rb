@@ -19,6 +19,15 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def update
+    league = League.find_by_slug(params[:id])
+    if league.update(league_params!)
+      league.slug = league.to_param
+      flash[:success] = "League Updated!"
+      redirect_to dashboard_path
+    else
+    end
+  end
   private
 
   def league_params!

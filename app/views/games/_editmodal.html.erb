@@ -1,0 +1,20 @@
+<div class="modal fade" id="editLeagueName" tabindex="-1" role="dialog" aria-lablelledby="myModalLable">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header poker-bg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit League Name!</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for league do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "League Name" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Update League!", class: "btn btn-poker", id:"update-league" %>
+    </div>
+    <% end %>
+  </div>
+</div>

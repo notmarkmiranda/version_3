@@ -1,5 +1,7 @@
 class League < ApplicationRecord
   after_create_commit{ League.last.seasons.create! }
+  # before_save :slug_creation
+
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
   validates :user_id, presence: true
@@ -22,5 +24,9 @@ class League < ApplicationRecord
 
   def to_param
     name.parameterize
+  end
+
+  def slug_creation
+    self.slug = to_param
   end
 end
