@@ -3,8 +3,14 @@ class League < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
   validates :user_id, presence: true
+
   belongs_to :user
   has_many :seasons
+  has_many :games, through: :seasons
+
+  def games_count
+    games.count
+  end
 
   def seasons_count
     seasons.count
