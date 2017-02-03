@@ -6,7 +6,7 @@ class ParticipantsController < ApplicationController
       flash[:success] = "player created!"
       redirect_to dashboard_path
     else
-      flash[:danger] = participant.errors.full_messages.join(", ")
+      flash[:danger] = "something went wrong!"
       redirect_to dashboard_path
     end
   end
