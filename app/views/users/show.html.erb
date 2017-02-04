@@ -1,19 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
-      <div class="actions row">
-        <div class="col-btn col-sm-3 col-xs-12">
-          <button id="new-league-button" type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#newLeague">
-            Create League
-          </button>
-        </div>
-        <div class="col-btn col-sm-3 col-xs-12">
-          <button id="new-player-button" type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#newParticipant">
-            Create Player
-          </button>
-        </div>
-      </div>
 
+      <%= render partial: "actions-row" %>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h1>Your Leagues</h1>
@@ -23,8 +12,8 @@
             <p>You don't currently have any leagues set up. Click the button above to create one!</p>
           <% end %>
           <% @leagues.each do |league| %>
-          <%= render partial: "leagues/dashboard-league", locals: { league: league } %>
-          <%= render partial: "games/newmodal", locals: { league: league } %>
+            <%= render partial: "leagues/dashboard-league", locals: { league: league } %>
+            <%= render partial: "games/newmodal", locals: { league: league } %>
           <% end %>
 
         </div>
