@@ -1,13 +1,13 @@
-<div class="modal fade" id="scheduleGame" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="scheduleGame-<%= league.slug %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header poker-bg">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Schedule Game!</h4>
+        <h4 class="modal-title" id="myModalLabel">Schedule Game for <%= league.name %>!</h4>
       </div>
       <div class="modal-body">
         <%= form_for [league, Game.new] do |f| %>
-        <%= f.hidden_field :season_id, value: Season.current_season(current_user.id).id %>
+        <%= f.hidden_field :season_id, value: Season.current_season(current_user.id, league.id).id %>
         <div class="form-group">
           <%= f.label :date, "Date" %>
           <%= f.date_field :date, class: "form-control" %>

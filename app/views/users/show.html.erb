@@ -12,8 +12,6 @@
             Create Player
           </button>
         </div>
-        <div class="col-btn col-sm-3 col-xs-12">
-        </div>
       </div>
 
       <div class="panel panel-default">
@@ -49,24 +47,21 @@
               </div>
               <div class="col-sm-3 col-xs-12 league-actions">
                 <%= link_to "View League", league_path(league), class: "btn btn-poker btn-block" %>
-                <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame">
+                <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame-<%= league.slug %>">
                   Schedule Game
                 </button>
-                <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#editLeagueName">
-                  Edit League Name
-                </button>
-                <%= link_to "League Settings", "#", class: "btn btn-poker btn-block" %>
+                <%= link_to "League Settings", "#", class: "btn btn-poker btn-block " %>
               </div>
             </div>
           </div>
+          <%= render partial: "games/newmodal", locals: { league: league } %>
+          <% end %>
+
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render partial: "games/newmodal", locals: { league: league } %>
-<%= render partial: "games/editmodal", locals: { league: league } %>
-<% end %>
 
 <%= render partial: "leagues/newmodal" %>
 <%= render partial: "participants/newparticipant" %>

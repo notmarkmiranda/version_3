@@ -6,8 +6,8 @@ class Season < ApplicationRecord
     active ? "Active!" : "Inactive"
   end
 
-  def self.current_season(user_id)
-    joins(:league).where("leagues.user_id = ? AND active = ?", user_id, true).first
+  def self.current_season(user_id, league_id)
+    joins(:league).where("active = ? AND leagues.id = ?", true, league_id).first
   end
 
 end
