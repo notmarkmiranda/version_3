@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="actions row">
+        <div class="col-btn col-sm-3 col-xs-12">
+          <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame-<%= @league.slug %>">
+            Schedule Game
+          </button>
+        </div>
+        <div class="col-btn col-sm-3 col-xs-12">
+          <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#editLeagueName">
+            Edit League Name
+          </button>
+        </div>
+        <div class="col-btn col-sm-3 col-xs-12">
+          <%= link_to "Score Active Game", "#", class: "btn btn-poker btn-block", disabled: true %>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1><%= @league.name %></h1>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
+              BEST PLAYER
+            </div>
+            <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
+              BIGGEST GAME
+            </div>
+          </div>
+        </div>
+        <div class="panel-body stats">
+          <%= render partial: "leagues/league-stats", locals: { league: @league } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: "games/newmodal", locals: { league: @league } %>
+<%= render partial: "leagues/editmodal", locals: { league: @league } %>

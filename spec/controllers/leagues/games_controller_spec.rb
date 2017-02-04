@@ -9,7 +9,7 @@ RSpec.describe Leagues::GamesController, type: :controller do
     season = create(:season)
     attrs = attributes_for(:game, season_id: season.id)
     post :create, params: { league_id: League.last.to_param, game: attrs }
-    expect(response).to redirect_to(dashboard_path)
+    expect(response).to redirect_to(league_path(League.last))
   end
 
   it "POST create - change count" do
