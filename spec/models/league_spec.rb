@@ -19,4 +19,6 @@ RSpec.describe League, typ: :model do
     create(:season, league: league)
     expect(league.seasons_count).to eq(2)
   end
+
+
 end
