@@ -3,7 +3,7 @@ class Leagues::GamesController < ApplicationController
     game = Game.new(game_params!)
     if game.save
       flash[:success] = "Your game has been scheduled!"
-      redirect_to dashboard_path
+      redirect_to league_path(game.league)
     else
     end
   end

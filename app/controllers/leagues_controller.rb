@@ -24,7 +24,7 @@ class LeaguesController < ApplicationController
     if league.update(league_params!)
       league.update(slug: league.to_param)
       flash[:success] = "League Updated!"
-      redirect_to dashboard_path
+      redirect_to league_path(league)
     else
     end
   end

@@ -1,0 +1,17 @@
+<div class="panel panel-default leagues">
+  <div class="panel-body row">
+    <div class="col-sm-9 col-xs-12">
+      <h2 class="league-name"><%= link_to league.name, league_path(league), class: "league-link" %></h2>
+      <div class="stats">
+        <%= render partial: "leagues/league-stats", locals: { league: league } %>
+      </div>
+    </div>
+    <div class="col-sm-3 col-xs-12 league-actions">
+      <%= link_to "View League", league_path(league), class: "btn btn-poker btn-block" %>
+      <button type="button" class="btn btn-poker btn-block" data-toggle="modal" data-target="#scheduleGame-<%= league.slug %>">
+        Schedule Game
+      </button>
+      <%= link_to "League Settings", "#", class: "btn btn-poker btn-block " %>
+    </div>
+  </div>
+</div>
