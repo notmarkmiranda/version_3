@@ -9,7 +9,7 @@ class LeaguesController < ApplicationController
 
   def create
     league = current_user.leagues.new(league_params!)
-    league.slug = league.to_param
+    league.slug_creation
     if league.save
       flash[:success] = "New League Created!"
       redirect_to dashboard_path
@@ -20,11 +20,11 @@ class LeaguesController < ApplicationController
   end
 
   def update
-    league = League.find_by_slug(params[:id])
-    if league.update(league_params!)
-      league.update(slug: league.to_param)
+    @league = League.find_by_slug(params[:id])
+    if @league.update(league_params!)
+      @league.slug_creation
       flash[:success] = "League Updated!"
-      redirect_to league_path(league)
+      redirect_to league_path(@league)
     else
     end
   end

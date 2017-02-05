@@ -5,6 +5,20 @@ RSpec.describe Leagues::GamesController, type: :controller do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(User.last)
   end
 
+  it "GET index - template" do
+    league = create(:league)
+    get :index, params: { league_id: league.slug }
+    expect(response).to render_template(:index)
+  end
+
+  it "GET index - assigns" do
+    league = create(:league)
+    season = league.seasons.first
+    game = create(:game, season: season)
+    get :index, params: { league_id: league.slug }
+    expect(assigns[:games]).to eq([game])
+  end
+
   it "POST create - template" do
     season = create(:season)
     attrs = attributes_for(:game, season_id: season.id)

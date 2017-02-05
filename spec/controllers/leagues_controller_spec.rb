@@ -42,4 +42,18 @@ RSpec.describe LeaguesController, type: :controller do
     expect(response).to render_template(:new)
   end
 
+  it "PATCH update - happy template" do
+    league = create(:league)
+    patch :update, params: { id: league.slug, league: { name: "new league" } }
+    league.reload
+    expect(response).to redirect_to(league_path(league))
+  end
+
+  it "PATCH update - assigns" do
+    league = create(:league)
+    patch :update, params: { id: league.slug, league: { name: "new league" } }
+    league.reload
+    expect(assigns[:league]).to eq(league)
+  end
+
 end

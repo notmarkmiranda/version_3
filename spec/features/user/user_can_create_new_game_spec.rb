@@ -8,7 +8,7 @@ RSpec.describe "user schedules a new game", type: :feature do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
-  xit "from the dashboard page", js: true do
+  it "from the dashboard page", js: true do
     visit dashboard_path
     click_button "Schedule Game"
     fill_in "Date", with: "01/01/2012"
@@ -21,7 +21,7 @@ RSpec.describe "user schedules a new game", type: :feature do
     end
   end
 
-  xit "from the league page", js: true do
+  it "from the league page", js: true do
     visit league_path(@league)
     within('.actions.row') do
       click_button "Schedule Game"
