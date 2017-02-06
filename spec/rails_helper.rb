@@ -49,7 +49,14 @@ RSpec.configure do |config|
         uncommitted transaction data setup over the spec's database connection.
       MSG
     end
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning  do
+      example.run
+    end
   end
 
   config.before(:each) do

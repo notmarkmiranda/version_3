@@ -13,4 +13,12 @@ RSpec.describe Season, type: :model do
     season = create(:season, active: false)
     expect(season.display_status).to eq("Inactive")
   end
+
+  it "#current_season" do
+    user = create(:user)
+    league = create(:league, user: user)
+    first_season = Season.first
+    second_season = create(:season, league: league, active: false)
+    expect(Season.current_season(user.id, league.id)).to eq(first_season)
+  end
 end

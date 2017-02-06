@@ -1,0 +1,41 @@
+<div class="container table-responsive">
+  <table class="table table-striped text-center">
+    <thead class="text-center">
+      <tr class="header-row">
+        <td>#</td>
+        <td>Date</td>
+        <td>Players</td>
+        <td>Buy In</td>
+        <td>Pot Size</td>
+        <td>Winner</td>
+        <td>Status</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @games.each_with_index do |game, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= game.full_date %></td>
+        <td>Players</td>
+        <td><%= number_to_currency(game.buy_in_amount) %></td>
+        <td>Pot Size</td>
+        <td>Winner</td>
+        <td><%= game.active_status %></td>
+        <td>
+          <button class="btn btn-poker">
+            Score Game
+          </button>
+          <button class="btn btn-poker">
+            Cancel Game
+          </button>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% @games.each do |game| %>
+    <%= game.date %><br>
+  <% end %>
+</div>

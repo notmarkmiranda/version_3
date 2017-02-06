@@ -10,6 +10,10 @@ class League < ApplicationRecord
   has_many :seasons
   has_many :games, through: :seasons
 
+  def active_games_count
+    games.where(active: true).count
+  end
+
   def games_count
     games.count
   end
@@ -27,6 +31,6 @@ class League < ApplicationRecord
   end
 
   def slug_creation
-    self.slug = to_param
+    update(slug: to_param)
   end
 end

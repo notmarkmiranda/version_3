@@ -1,4 +1,8 @@
 class Leagues::GamesController < ApplicationController
+  def index
+    @games = League.find_by_slug(params[:league_id]).games
+  end
+
   def create
     game = Game.new(game_params!)
     if game.save
