@@ -1,13 +1,12 @@
 <div class="col-sm-4 col-xs-12">
   <p><%= pluralize(league.seasons_count, "Season") %></p>
-  <p><%= link_to pluralize(league.active_games_count, "Active Game"), league_games_path(league) %></p>
-  <p>1 Active Game</p>
-  <p><%= pluralize(league.games_count, "Completed Game") %></p>
+  <p><%= pluralize(league.active_games_count, "Active Game") %></p>
+  <p><%= pluralize(league.completed_games_count, "Completed Game") %></p>
 </div>
 <div class="col-sm-4 col-xs-12">
-  <p>27 Players</p>
-  <p>Cumulative Pot: $2,765</p>
-  <p>Largest Pot: $975</p>
+  <p><%= pluralize(league.unique_players, "Player") %></p>
+  <p>Cumulative Pot: <%= number_to_currency(league.cumulative_pot) %></p>
+  <p>Largest Pot: <%= number_to_currency(league.max_pot) %></p>
 </div>
 <div class="col-sm-4 col-xs-12">
   <p>Last Game: Jan 31, 2016</p>

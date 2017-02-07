@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170207012023) do
     t.integer "participant_id"
     t.integer "finishing_place"
     t.integer "game_id"
-    t.integer "additional_expense"
+    t.integer "additional_expense", default: 0
     t.float   "score"
     t.index ["game_id"], name: "index_players_on_game_id", using: :btree
     t.index ["participant_id"], name: "index_players_on_participant_id", using: :btree

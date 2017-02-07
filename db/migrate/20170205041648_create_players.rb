@@ -4,7 +4,7 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.references :participant, foreign_key: true
       t.integer :finising_place
       t.references :game, foreign_key: true
-      t.integer :additional_expense
+      t.integer :additional_expense, default: 0
     end
   end
 end
