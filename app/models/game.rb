@@ -1,6 +1,9 @@
 class Game < ApplicationRecord
+  include NumberFormatter
+
   belongs_to :season
   delegate :league, to: :season
+  has_many :players
 
   validates :date, presence: true
   validates :buy_in_amount, presence: true
@@ -10,7 +13,21 @@ class Game < ApplicationRecord
     active ? "Active" : "Scored"
   end
 
+  def calculate_scores
+    players.each do |player|
+      player.update(score: get_individual_score(player))
+    end
+  end
+
   def full_date
     date.strftime("%B%e, %Y")
+  end
+
+  private
+
+  def get_individual_score(player)
+    numerator = players.count * buy_in_amount * buy_in_amount / buy_in_amount + player.additional_expense
+    denominator = player.finishing_place + 1
+    clean_to_two_digits(Math.sqrt(numerator) / denominator)
   end
 end
