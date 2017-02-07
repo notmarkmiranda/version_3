@@ -1,7 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# user
+user = User.create(email: "markmiranda51@gmail.com", password: "password")
+
+league = League.create(name: "Michael Cassano's Home League", slug: "michael-cassano-s-home-league", user_id: user.id)
+
+# seasons
+preseason = Season.last
+
+#participants
+tyler  = Participant.create(first_name: "Tyler", last_name: "Merry")
+mike   = Participant.create(first_name: "Michael", last_name: "Cassano")
+mark_m = Participant.create(first_name: "Mark", last_name: "Miranda")
+andy   = Participant.create(first_name: "Andy", last_name: "Baum")
+chris  = Participant.create(first_name: "Chris", last_name: "Kampe")
+scott  = Participant.create(first_name: "Scott", last_name: "Lukes")
+
+#game
+game = Game.create(date: Date.new(2016, 10, 18),
+                   buy_in_amount: 15,
+                   active: false,
+                   season_id: preseason.id)
+game.players.create(participant_id: tyler.id,
+                    game_id: game.id,
+                    finishing_place: 1)
+game.players.create(participant_id: mike.id,
+                    game_id: game.id,
+                    finishing_place: 2)
+game.players.create(participant_id: mark_m.id,
+                    game_id: game.id,
+                    finishing_place: 3)
+game.players.create(participant_id: andy.id,
+                    game_id: game.id,
+                    finishing_place: 4)
+game.players.create(participant_id: chris.id,
+                    game_id: game.id,
+                    finishing_place: 5)
+game.players.create(participant_id: scott.id,
+                    game_id: game.id,
+                    finishing_place: 6)
