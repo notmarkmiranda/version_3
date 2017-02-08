@@ -9,13 +9,27 @@ class League < ApplicationRecord
   belongs_to :user
   has_many :seasons
   has_many :games, through: :seasons
+  has_many :players, through: :games
+  has_many :participants, through: :players
 
   def active_games_count
     games.where(active: true).count
   end
 
+  def completed_games_count
+    games.where(active: false).count
+  end
+
+  def cumulative_pot
+    games.map(&:pot).reduce(:+)
+  end
+
   def games_count
     games.count
+  end
+
+  def max_pot
+    games.empty? ? 0 : games.max_by(&:pot).pot
   end
 
   def seasons_count
@@ -26,11 +40,15 @@ class League < ApplicationRecord
     find_by(slug: slug)
   end
 
+  def slug_creation
+    update(slug: to_param)
+  end
+
   def to_param
     name.parameterize
   end
 
-  def slug_creation
-    update(slug: to_param)
+  def unique_players
+    participants.count
   end
 end

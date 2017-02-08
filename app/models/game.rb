@@ -23,6 +23,10 @@ class Game < ApplicationRecord
     date.strftime("%B%e, %Y")
   end
 
+  def pot
+    players.count * buy_in_amount + players.sum(:additional_expense)
+  end
+
   private
 
   def get_individual_score(player)
