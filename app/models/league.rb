@@ -28,6 +28,10 @@ class League < ApplicationRecord
     games.count
   end
 
+  def last_game
+    games.empty? ? "No Game Available" : games.max_by(&:date).full_date
+  end
+
   def max_pot
     games.empty? ? 0 : games.max_by(&:pot).pot
   end

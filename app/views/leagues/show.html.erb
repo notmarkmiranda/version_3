@@ -22,11 +22,55 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
-              BEST PLAYER
+            <div class="col-lg-6 col-sm-10 col-sm-ofset-1 text-center">
+
+
+
+              <h3 class="column-title">BEST PLAYER</h3>
+              <span class="fa-stack fa-lg fa-xl">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-user-secret fa-stack-1x fa-inverse"></i>
+              </span>
+              <h2><span class="stat"><%# @leader.full_name %>Mark Miranda</span></h2>
+              <div class="player-stats">
+                <h4>Won or Placed: <span class="stat"><%# number_to_percentage(@leader.global_won_or_placed_percentage, precision: 0) %></span></h4>
+                <h4>Has Played In: <span class="stat"><%# pluralize(@leader.total_games_count, 'game') %></span></h4>
+                <h4>Score: <span class="stat"><%# @leader.global_score %></span></h4>
+                <h4>Nemesis: <span class="stat">Your Mom</h4>
+                  <hr>
+              </div>
+              <div class="link">
+                <p><%= link_to "Here are the losers", "#", class: "nav-link" %></p>
+              </div>
+
+
+
             </div>
             <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
-              BIGGEST GAME
+
+
+
+              <div class="biggest-game text-center">
+                <h3 class="column-title">BIGGEST GAME</h3>
+                <span class="fa-stack fa-lg fa-xl">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-dollar fa-stack-1x fa-inverse"></i>
+                </span>
+                <h2><span class="stat"><%# @big_game.formatted_date %></span></h2>
+                <div class="game-stats">
+                  <h4>Pot Size: <span class="stat"><%# number_to_currency(@big_game.pot_size) %></span></h4>
+                  <h4>Number of Players: <span class="stat"><%# @big_game.player_count %></span></h4>
+                  <h4>Winner: <span class="stat"><%# @big_game.winner %></span></h4>
+                  <h4>Second: <span class="stat"><%# @big_game.second_place %></span></h4>
+                  <hr>
+                </div>
+                <div class="link">
+                  <p><%= link_to "check out the other games", "#", class: "nav-link" %></p>
+                </div>
+              </div>
+
+
+
             </div>
           </div>
         </div>
@@ -38,5 +82,5 @@
   </div>
 </div>
 
-<%= render partial: "games/newmodal", locals: { league: @league } %>
-<%= render partial: "leagues/editmodal", locals: { league: @league } %>
+  <%= render partial: "games/newmodal", locals: { league: @league } %>
+  <%= render partial: "leagues/editmodal", locals: { league: @league } %>

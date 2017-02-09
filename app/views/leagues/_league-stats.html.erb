@@ -1,15 +1,15 @@
-<div class="col-sm-4 col-xs-12">
+<div class="col-sm-4 col-xs-12 text-center">
   <p><%= pluralize(league.seasons_count, "Season") %></p>
   <p><%= pluralize(league.active_games_count, "Active Game") %></p>
   <p><%= pluralize(league.completed_games_count, "Completed Game") %></p>
 </div>
-<div class="col-sm-4 col-xs-12">
+<div class="col-sm-4 col-xs-12 text-center">
   <p><%= pluralize(league.unique_players, "Player") %></p>
   <p>Cumulative Pot: <%= number_to_currency(league.cumulative_pot) %></p>
   <p>Largest Pot: <%= number_to_currency(league.max_pot) %></p>
 </div>
-<div class="col-sm-4 col-xs-12">
-  <p>Last Game: Jan 31, 2016</p>
+<div class="col-sm-4 col-xs-12 text-center">
+  <p>Last Game: <%= league.last_game %></p>
   <p>League Leader: John S.</p>
   <p>League Loser: Michael C.</p>
 </div>
