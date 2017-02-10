@@ -16,7 +16,7 @@ class Participant < ApplicationRecord
 
   def overall_score
     top_five_scores = get_top_five_scores
-    clean_to_two_digits(top_five_scores.reduce(:+) / 5)
+    clean_to_two_digits(top_five_scores.reduce(:+) || 0 / 5)
   end
 
   def overall_won_or_placed_percentage
