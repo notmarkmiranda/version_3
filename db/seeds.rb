@@ -553,10 +553,6 @@ game_id: game.id,
 finishing_place: 6)
 # END OF OCTOBER 18th GAME
 
-# User
-User.create(email: 'markmiranda51@gmail.com', password: 'password')
-
-
 # Calculate game scores
 Game.all.each do |g|
   g.calculate_scores
