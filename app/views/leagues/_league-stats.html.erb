@@ -1,15 +1,80 @@
-<div class="col-sm-4 col-xs-12 text-center">
-  <p><%= pluralize(league.seasons_count, "Season") %></p>
-  <p><%= pluralize(league.active_games_count, "Active Game") %></p>
-  <p><%= pluralize(league.completed_games_count, "Completed Game") %></p>
+<div class="col-lg-4 col-sm-10 col-sm-ofset-1 text-center">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Seasons</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.seasons_count %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Active Games</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.active_games_count %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Completed Games</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.completed_games_count %>
+    </div>
+  </div>
 </div>
-<div class="col-sm-4 col-xs-12 text-center">
-  <p><%= pluralize(league.unique_players, "Player") %></p>
-  <p>Cumulative Pot: <%= number_to_currency(league.cumulative_pot) %></p>
-  <p>Largest Pot: <%= number_to_currency(league.max_pot) %></p>
+
+<div class="col-lg-4 col-sm-10 col-sm-ofset-1 text-center">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Players</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.unique_players %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Cumulative Pot</h3>
+    </div>
+    <div class="panel-body">
+      <%= number_to_currency(league.cumulative_pot) %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Largest Pot</h3>
+    </div>
+    <div class="panel-body">
+      <%= number_to_currency(league.max_pot) %>
+    </div>
+  </div>
 </div>
-<div class="col-sm-4 col-xs-12 text-center">
-  <p>Last Game: <%= league.last_game %></p>
-  <p>League Leader: John S.</p>
-  <p>League Loser: Michael C.</p>
+
+<div class="col-lg-4 col-sm-10 col-sm-ofset-1 text-center">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Last Game</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.last_game %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Overall Leader</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.overall_leader.full_name %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">League Loser</h3>
+    </div>
+    <div class="panel-body">
+      <%= league.overall_loser.full_name %>
+    </div>
+  </div>
 </div>

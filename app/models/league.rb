@@ -44,6 +44,10 @@ class League < ApplicationRecord
     participants.max_by(&:overall_score)
   end
 
+  def overall_loser
+    participants.min_by(&:overall_score)
+  end
+
   def seasons_count
     seasons.count
   end
