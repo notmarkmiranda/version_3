@@ -37,3 +37,5 @@ game.players.create(participant_id: chris.id,
 game.players.create(participant_id: scott.id,
                     game_id: game.id,
                     finishing_place: 6)
+                    
+game.calculate_scores

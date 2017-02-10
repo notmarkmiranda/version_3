@@ -22,11 +22,60 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
-              BEST PLAYER
+            <div class="col-lg-6 col-sm-10 col-sm-ofset-1 text-center">
+
+
+
+              <h3 class="column-title">BEST PLAYER</h3>
+              <span class="fa-stack fa-lg fa-xl">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-user-secret fa-stack-1x fa-inverse"></i>
+              </span>
+              <% if @league.completed_games_count.nonzero? %>
+              <h2><span class="stat"><%= @league.overall_leader.full_name %></span></h2>
+              <div class="player-stats">
+                <h4>Won or Placed: <span class="stat"><%= number_to_percentage(@league.overall_leader.overall_won_or_placed_percentage, precision: 0) %></span></h4>
+                <h4>Has Played In: <span class="stat"><%= pluralize(@league.overall_leader.overall_games_count, 'game') %></span></h4>
+                <h4>Score: <span class="stat"><%= @league.overall_leader.overall_score %></span></h4>
+                <h4>Nemesis: <span class="stat">Your Mom</h4>
+                  <hr>
+              </div>
+              <% end %>
+              <div class="link">
+                <p><%= link_to "Here are the losers", "#", class: "nav-link" %></p>
+              </div>
+
+
+
             </div>
             <div class="col-lg-6 col-sm-10 col-sm-ofset-1">
-              BIGGEST GAME
+
+
+
+              <div class="biggest-game text-center">
+                <h3 class="column-title">BIGGEST GAME</h3>
+                <span class="fa-stack fa-lg fa-xl">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-dollar fa-stack-1x fa-inverse"></i>
+                </span>
+
+                <% if @league.completed_games_count.nonzero? %>
+                <h2><span class="stat"><%= @league.biggest_game.full_date %></span></h2>
+                <div class="game-stats">
+                  <h4>Pot Size: <span class="stat"><%= number_to_currency(@league.biggest_game.pot) %></span></h4>
+                  <h4>Number of Players: <span class="stat"><%= @league.biggest_game.player_count %></span></h4>
+                  <h4>Winner: <span class="stat"><%= @league.biggest_game.first_or.full_name %></span></h4>
+                  <h4>Second: <span class="stat"><%= @league.biggest_game.first_or(2).full_name %></span></h4>
+                  <hr>
+                </div>
+                <% end %>
+                <div class="link">
+                  <p><%= link_to "check out the other games", "#", class: "nav-link" %></p>
+                </div>
+              </div>
+
+
+
             </div>
           </div>
         </div>
@@ -38,5 +87,5 @@
   </div>
 </div>
 
-<%= render partial: "games/newmodal", locals: { league: @league } %>
-<%= render partial: "leagues/editmodal", locals: { league: @league } %>
+  <%= render partial: "games/newmodal", locals: { league: @league } %>
+  <%= render partial: "leagues/editmodal", locals: { league: @league } %>

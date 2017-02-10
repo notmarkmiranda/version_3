@@ -2,30 +2,19 @@ html, body {
   font-family: 'Roboto', sans-serif !important;
 }
 
-.navbar > .container .navbar-brand {
-  color: #8B8C89;
+a.league-link {
   text-transform: uppercase;
-  font-weight: 300;
-  span {
-    color: #274C77;
-    font-weight: bold;
+  &:hover {
+    text-decoration:none;
   }
 }
 
-.navbar-default .navbar-nav > li > a {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-}
-
-.dropdown-menu > li > a {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-.poker-bg {
-  background-color: #274C77;
-  color: #FFF;
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 30%;
+  width: 40%;
+  z-index: 7000;
 }
 
 .btn.btn-poker, li.btn-poker {
@@ -39,31 +28,52 @@ html, body {
   }
 }
 
-.alert {
-  position: fixed;
-  top: 20px;
-  left: 30%;
-  width: 40%;
-  z-index: 7000;
+.dropdown-menu > li > a {
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
-.panel.panel-default {
-  margin-top: 20px;
+.fa-xl {
+  font-size: 8em;
+}
+
+.header-row {
+  font-weight: bold;
 }
 
 .league-name {
   margin-top: 0px;
 }
 
-a.league-link {
+.navbar > .container .navbar-brand {
+  color: #8B8C89;
   text-transform: uppercase;
-  &:hover {
-    text-decoration:none;
+  font-weight: 300;
+  span {
+    color: #274C77;
+    font-weight: bold;
   }
 }
 
-.header-row {
+.navbar-default .navbar-nav > li > a, .nav-link {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.panel.panel-default {
+  margin-top: 20px;
+}
+
+.poker-bg {
+  background-color: #274C77;
+  color: #FFF;
+}
+
+span.stat {
   font-weight: bold;
+  text-transform: uppercase;
+  color: #5d5d5d;
 }
 
 @media (max-width: 767px) {
