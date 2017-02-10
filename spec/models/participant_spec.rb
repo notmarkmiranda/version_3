@@ -43,7 +43,7 @@ RSpec.describe Participant, type: :model do
     it "#overall_won_or_placed_percentage" do
       player1 = create(:player, finishing_place: 1)
       participant = player1.participant
-      # expect(participant.overall_won_or_placed_percentage).to eq(100)
+      expect(participant.overall_won_or_placed_percentage).to eq(100)
 
       player2 = create(:player, finishing_place: 4, participant: participant)
       participant.reload
