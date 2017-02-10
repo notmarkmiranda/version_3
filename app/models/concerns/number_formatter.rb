@@ -1,5 +1,5 @@
 module NumberFormatter
   def clean_to_two_digits(number)
-    (number * 100).floor / 100.0
+    (number * 1000).floor / 1000.0
   end
 end

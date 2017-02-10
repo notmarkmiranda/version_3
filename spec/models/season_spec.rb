@@ -17,7 +17,7 @@ RSpec.describe Season, type: :model do
   it "#current_season" do
     user = create(:user)
     league = create(:league, user: user)
-    first_season = Season.first
+    first_season = league.seasons.first
     second_season = create(:season, league: league, active: false)
     expect(Season.current_season(user.id, league.id)).to eq(first_season)
   end

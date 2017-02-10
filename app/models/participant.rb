@@ -20,7 +20,7 @@ class Participant < ApplicationRecord
   end
 
   def overall_won_or_placed_percentage
-    (overall_won_or_placed_count / overall_games_count * 100).floor
+    (overall_won_or_placed_count / overall_games_count.to_f * 100).floor
   end
 
   private
@@ -30,7 +30,7 @@ class Participant < ApplicationRecord
   end
 
   def overall_won_or_placed_count
-    players.where(finishing_place: [1,2,3]).count / overall_games_count
+    players.where(finishing_place: [1,2,3]).count
   end
 
 

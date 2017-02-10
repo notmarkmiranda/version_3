@@ -28,7 +28,7 @@ RSpec.describe Game, type: :model do
   end
 
   context "scoring" do
-    before do
+    before(:all) do
       @game = create(:game)
       create_list(:player, 10, game: @game)
       @first = Player.first
@@ -39,8 +39,23 @@ RSpec.describe Game, type: :model do
       @game.calculate_scores
       @first.reload
       @last.reload
-      expect(@first.score).to eq(7.07)
-      expect(@last.score).to eq(1.28)
+      expect(@first.score).to eq(7.071)
+      expect(@last.score).to eq(1.285)
+    end
+
+    it "#player_count" do
+      expect(@game.player_count).to eq(10)
+    end
+
+    it "#pot" do
+      expect(@game.pot).to eq(200)
+      @last.update(additional_expense: 15)
+      expect(@game.pot).to eq(215)
+    end
+
+    it "#first_or" do
+      first_place = @game.players.where(finishing_place: 1).first
+      expect(@game.first_or).to eq(first_place.participant)
     end
   end
 end

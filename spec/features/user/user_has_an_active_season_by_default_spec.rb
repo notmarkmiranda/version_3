@@ -15,7 +15,7 @@ RSpec.describe "active season by default with a new league", typ: :feature do
     expect(current_path).to eq(dashboard_path)
 
     within('.stats') do
-      expect(page).to have_content("1 Season")
+      expect(page).to have_content("Seasons 1")
       # expect(page).to have_content("season-id-#{Season.last.id}")
       # expect(page).to have_content("Active!")
     end
