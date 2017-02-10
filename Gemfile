@@ -19,6 +19,7 @@ gem 'bcrypt'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'table_print'
   gem 'pry'
 end
 

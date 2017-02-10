@@ -31,14 +31,16 @@
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-user-secret fa-stack-1x fa-inverse"></i>
               </span>
-              <h2><span class="stat"><%# @leader.full_name %>Mark Miranda</span></h2>
+              <% if @league.completed_games_count.nonzero? %>
+              <h2><span class="stat"><%= @league.overall_leader.full_name %></span></h2>
               <div class="player-stats">
-                <h4>Won or Placed: <span class="stat"><%# number_to_percentage(@leader.global_won_or_placed_percentage, precision: 0) %></span></h4>
-                <h4>Has Played In: <span class="stat"><%# pluralize(@leader.total_games_count, 'game') %></span></h4>
-                <h4>Score: <span class="stat"><%# @leader.global_score %></span></h4>
+                <h4>Won or Placed: <span class="stat"><%= number_to_percentage(@league.overall_leader.overall_won_or_placed_percentage, precision: 0) %></span></h4>
+                <h4>Has Played In: <span class="stat"><%= pluralize(@league.overall_leader.overall_games_count, 'game') %></span></h4>
+                <h4>Score: <span class="stat"><%= @league.overall_leader.overall_score %></span></h4>
                 <h4>Nemesis: <span class="stat">Your Mom</h4>
                   <hr>
               </div>
+              <% end %>
               <div class="link">
                 <p><%= link_to "Here are the losers", "#", class: "nav-link" %></p>
               </div>
@@ -56,14 +58,17 @@
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-dollar fa-stack-1x fa-inverse"></i>
                 </span>
-                <h2><span class="stat"><%# @big_game.formatted_date %></span></h2>
+
+                <% if @league.completed_games_count.nonzero? %>
+                <h2><span class="stat"><%= @league.biggest_game.full_date %></span></h2>
                 <div class="game-stats">
-                  <h4>Pot Size: <span class="stat"><%# number_to_currency(@big_game.pot_size) %></span></h4>
-                  <h4>Number of Players: <span class="stat"><%# @big_game.player_count %></span></h4>
-                  <h4>Winner: <span class="stat"><%# @big_game.winner %></span></h4>
-                  <h4>Second: <span class="stat"><%# @big_game.second_place %></span></h4>
+                  <h4>Pot Size: <span class="stat"><%= number_to_currency(@league.biggest_game.pot) %></span></h4>
+                  <h4>Number of Players: <span class="stat"><%= @league.biggest_game.player_count %></span></h4>
+                  <h4>Winner: <span class="stat"><%= @league.biggest_game.first_or.full_name %></span></h4>
+                  <h4>Second: <span class="stat"><%= @league.biggest_game.first_or(2).full_name %></span></h4>
                   <hr>
                 </div>
+                <% end %>
                 <div class="link">
                   <p><%= link_to "check out the other games", "#", class: "nav-link" %></p>
                 </div>

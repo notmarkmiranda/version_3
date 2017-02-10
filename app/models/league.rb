@@ -16,6 +16,10 @@ class League < ApplicationRecord
     games.where(active: true).count
   end
 
+  def biggest_game
+    games.max_by(&:pot)
+  end
+
   def completed_games_count
     games.where(active: false).count
   end
@@ -34,6 +38,10 @@ class League < ApplicationRecord
 
   def max_pot
     games.empty? ? 0 : games.max_by(&:pot).pot
+  end
+
+  def overall_leader
+    participants.max_by(&:overall_score)
   end
 
   def seasons_count

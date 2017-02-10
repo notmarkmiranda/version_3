@@ -23,8 +23,16 @@ class Game < ApplicationRecord
     date.strftime("%B%e, %Y")
   end
 
+  def player_count
+    players.count
+  end
+
   def pot
     players.count * buy_in_amount + players.sum(:additional_expense)
+  end
+
+  def first_or(place=1)
+    players.where(finishing_place: place).first.participant
   end
 
   private
