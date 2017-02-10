@@ -31,13 +31,13 @@ RSpec.describe Participant, type: :model do
       game = player.game
       game.calculate_scores
       player.reload
-      expect(participant.overall_score).to eq(0.033)
+      expect(participant.overall_score).to eq(0.165)
 
       player2 = create(:player, participant: participant)
       game2 = player2.game
       game2.calculate_scores
       player2.reload
-      expect(participant.overall_score).to eq(0.064)
+      expect(participant.overall_score).to eq(0.324)
     end
 
     it "#overall_won_or_placed_percentage" do
