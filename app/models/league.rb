@@ -17,7 +17,8 @@ class League < ApplicationRecord
   end
 
   def biggest_game
-    games.max_by(&:pot)
+    pot = games.max_by(&:pot)
+    pot.pot == 0 ? games.max_by(&:buy_in_amount) : pot
   end
 
   def completed_games_count
@@ -65,6 +66,6 @@ class League < ApplicationRecord
   end
 
   def unique_players
-    participants.count
+    participants.uniq.count
   end
 end
