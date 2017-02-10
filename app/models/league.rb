@@ -25,7 +25,7 @@ class League < ApplicationRecord
   end
 
   def cumulative_pot
-    games.map(&:pot).reduce(:+)
+    games.map(&:pot).reduce(:+) || 0
   end
 
   def games_count

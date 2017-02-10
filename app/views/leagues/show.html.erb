@@ -84,9 +84,9 @@
           </div>
         </div>
         <div class="panel-body stats">
-          <% if @league.completed_games_count.nonzero? %>
+          <%# if @league.completed_games_count.nonzero? %>
             <%= render partial: "leagues/league-stats", locals: { league: @league } %>
-          <% end %>
+          <%# end %>
         </div>
       </div>
     </div>
