@@ -17,25 +17,27 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= game.full_date %></td>
-        <td>Players</td>
+        <td><%= game.player_count %></td>
         <td><%= number_to_currency(game.buy_in_amount) %></td>
-        <td>Pot Size</td>
-        <td>Winner</td>
+        <td><%= number_to_currency(game.pot) %></td>
+        <td><%= game.first_or %></td>
         <td><%= game.active_status %></td>
         <td>
+          <% if game.active %>
           <button class="btn btn-poker">
             Score Game
           </button>
           <button class="btn btn-poker">
             Cancel Game
           </button>
+          <% else %>
+          <button class="btn btn-poker">
+            Edit Game
+          </button>
+          <% end %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-
-  <% @games.each do |game| %>
-    <%= game.date %><br>
-  <% end %>
 </div>

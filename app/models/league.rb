@@ -12,6 +12,10 @@ class League < ApplicationRecord
   has_many :players, through: :games
   has_many :participants, through: :players
 
+  def active_games?
+    active_games_count > 0
+  end
+
   def active_games_count
     games.where(active: true).count
   end

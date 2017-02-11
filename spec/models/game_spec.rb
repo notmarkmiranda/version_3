@@ -23,13 +23,13 @@ RSpec.describe Game, type: :model do
     end
 
     it "#full_date" do
-      expect(@game.full_date).to eq("January 1, 2012")
+      expect(@game.full_date).to eq("January  1, 2012")
     end
   end
 
   context "scoring" do
     before(:all) do
-      @game = create(:game)
+      @game = create(:game, active: false)
       create_list(:player, 10, game: @game)
       @first = Player.first
       @last = Player.last
@@ -55,7 +55,7 @@ RSpec.describe Game, type: :model do
 
     it "#first_or" do
       first_place = @game.players.where(finishing_place: 1).first
-      expect(@game.first_or).to eq(first_place.participant)
+      expect(@game.first_or).to eq(first_place.participant.full_name)
     end
   end
 end

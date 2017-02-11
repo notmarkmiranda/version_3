@@ -82,7 +82,7 @@ RSpec.describe League, typ: :model do
 
     it "#last_game" do
       game = create(:game, season: @season)
-      expect(@league.last_game).to eq("January 1, 2012")
+      expect(@league.last_game).to eq("January  1, 2012")
     end
 
     it "#max_pot - empty" do
