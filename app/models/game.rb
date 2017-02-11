@@ -20,7 +20,7 @@ class Game < ApplicationRecord
   end
 
   def full_date
-    date.strftime("%B%e, %Y")
+    date.strftime("%B %e, %Y")
   end
 
   def player_count
@@ -32,7 +32,7 @@ class Game < ApplicationRecord
   end
 
   def first_or(place=1)
-    players.where(finishing_place: place).first.participant
+    active ? "Game Not Scored" : players.where(finishing_place: place).first.participant.full_name
   end
 
   private

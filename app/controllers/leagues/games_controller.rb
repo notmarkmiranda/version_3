@@ -1,7 +1,9 @@
 class Leagues::GamesController < ApplicationController
   def index
-    @games = League.find_by_slug(params[:league_id]).games
-  end
+    games = League.find_by_slug(params[:league_id]).games
+    valid_active = (params[:active] == "true" || params[:active] == "false")
+    valid_active ? @games = games.where(active: params[:active]) : @games = games
+    end
 
   def create
     game = Game.new(game_params!)
