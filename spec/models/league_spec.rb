@@ -153,4 +153,5 @@ RSpec.describe League, typ: :model do
       expect(@league.slug_creation).to eq(true)
     end
   end
+  
 end
