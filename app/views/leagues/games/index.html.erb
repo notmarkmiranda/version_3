@@ -24,9 +24,10 @@
         <td><%= game.active_status %></td>
         <td>
           <% if game.active %>
-          <button class="btn btn-poker">
+          <!-- <button class="btn btn-poker">
             Score Game
-          </button>
+          </button> -->
+          <%= link_to "Score Game", new_game_player_path(game), class: "btn btn-poker" %>
           <button class="btn btn-poker">
             Cancel Game
           </button>

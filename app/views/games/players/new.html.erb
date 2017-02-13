@@ -1,0 +1,16 @@
+<%= form_for [@game, @player] do |f| %>
+  <%= f.collection_select :participant_id, Participant.order(:first_name), :id, :full_name, { include_blank: true } %>
+  <%= f.label :finishing_place %>
+  <%= f.text_field :finishing_place %>
+  <%= f.label :additional_expense %>
+  <%= f.text_field :additional_expense %>
+  <%= f.submit "Score It!" %>
+<% end %>
+
+<div class="scored">
+  <% @game.players.each do |player| %>
+    <%= player.full_name %>
+    <%= player.finishing_place %>
+    <%= number_to_currency(player.additional_expense) %>
+  <% end %>
+</div>

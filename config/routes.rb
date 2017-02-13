@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   resources :leagues, only: [:new, :index, :create, :show, :update] do
     resources :games, controller: "leagues/games"
   end
+
+  resources :games do
+    resources :players, controller: "games/players"
+  end
+
   resources :participants
-  
+
   get "/dashboard", to: "users#show", as: "dashboard"
   get "/logout", to: "sessions#destroy", as: "logout"
   get "/sign-up-or-in", to: "users#new", as: "sign_up"
