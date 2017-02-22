@@ -27,6 +27,10 @@ class Game < ApplicationRecord
     players.count
   end
 
+  def players_by_place
+    players.sort_by(&:finishing_place)
+  end
+
   def pot
     players.count * buy_in_amount + players.sum(:additional_expense)
   end
