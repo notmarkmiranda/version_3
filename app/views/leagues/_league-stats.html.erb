@@ -63,23 +63,24 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Overall Leader</h3>
+      <h3 class="panel-title">Average Players Per Game</h3>
     </div>
     <div class="panel-body">
       <% if league.completed_games_count.nonzero? %>
-        <%= league.overall_leader.full_name %>
+        <%= league.average_players_per_game %>
       <% else %>
         No One
       <% end %>
     </div>
   </div>
+
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">League Loser</h3>
+      <h3 class="panel-title">Overall Leader</h3>
     </div>
     <div class="panel-body">
       <% if league.completed_games_count.nonzero? %>
-        <%= league.overall_loser.full_name %>
+        <%= league.overall_leader.full_name %>
       <% else %>
         No One
       <% end %>

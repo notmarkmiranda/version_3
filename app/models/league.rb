@@ -1,4 +1,5 @@
 class League < ApplicationRecord
+  include NumberFormatter
   after_create_commit{ League.last.seasons.create! }
   # before_save :slug_creation
 
@@ -18,6 +19,10 @@ class League < ApplicationRecord
 
   def active_games_count
     games.where(active: true).count
+  end
+
+  def average_players_per_game
+    clean_to_two_digits(overall_players_count / games_count.to_f)
   end
 
   def biggest_game
@@ -49,8 +54,13 @@ class League < ApplicationRecord
     participants.max_by(&:overall_score)
   end
 
+  # delete this method?
   def overall_loser
     participants.min_by(&:overall_score)
+  end
+
+  def overall_players_count
+    players.count
   end
 
   def seasons_count

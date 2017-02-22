@@ -18,7 +18,7 @@ RSpec.describe "user can create a league", type: :feature do
 
     expect(current_path).to eq(dashboard_path)
     within('.leagues') do
-      expect(page).to have_link("test league")
+      expect(page).to have_link(League.last.name)
     end
 
   end
