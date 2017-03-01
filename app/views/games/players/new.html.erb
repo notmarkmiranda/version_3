@@ -13,7 +13,9 @@
     <li>
       <%= player.full_name %><br />
       Place: <%= player.finishing_place %><br />
-      Total Cost: <%= number_to_currency(player.total_expense) %>
+      Total Cost: <%= number_to_currency(player.total_expense) %><br />
+      <%= link_to "Edit #{player.full_name}", edit_game_player_path(@game, player) %>
+
     </li>
     <% end %>
   </ul>
